@@ -5,7 +5,7 @@ Use Python to read text from a .pptx file and write it to a .txt file.
 
 # Installation
 
-`pip install -r requirements.txt`
+`pip install python-pptx`
 
 Use python-pptx and glob (if glob is not listed, install it using pip).
 

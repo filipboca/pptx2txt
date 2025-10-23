@@ -60,19 +60,25 @@ def extract_text_from_pptx(path):
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("Usage: python extract_pptx_text.py <presentation.pptx>")
+        print("Usage: python extract_pptx_text.py <input.pptx> [output.txt]")
         sys.exit(1)
 
     pptx_path = sys.argv[1]
+    
     if not os.path.exists(pptx_path):
         print(f"File not found: {pptx_path}")
         sys.exit(1)
 
+    if len(sys.argv) >= 3:
+        output_path = sys.argv[2]
+    else:
+        output_path = os.path.splitext(pptx_path)[0] + ".txt"
+
     text = extract_text_from_pptx(pptx_path)
 
-    # Print to console or save to a .txt file
-    txt_path = os.path.splitext(pptx_path)[0] + ".txt"
-    with open(txt_path, "w", encoding="utf-8") as f:
+    os.makedirs(os.path.dirname(output_path) or ".", exist_ok=True)
+    
+    with open(output_path, "w", encoding="utf-8") as f:
         f.write(text)
 
-    print(f"✅ Text extracted and saved to {txt_path}")
+    print(f"✅ Text extracted and saved to {output_path}")
