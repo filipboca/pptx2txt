@@ -1,0 +1,8 @@
+*.pptx
+*.txt
+.*
+
+**/c_in
+**/c_out
+
+.gitignore
