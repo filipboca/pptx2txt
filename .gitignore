@@ -4,5 +4,8 @@
 
 **/c_in
 **/c_out
+**/c_rec
+**/c_rec_out
+**/__pycache__
 
 .gitignore
